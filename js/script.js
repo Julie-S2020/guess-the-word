@@ -32,4 +32,22 @@ button.addEventListener("click", function(e) {
     const guessInput = letterInput.value;
     console.log(guessInput);
     letterInput.value = "";
+    messages.innerText = "";
+    
 });
+
+//Create a Function to Check Player’s Input
+
+const inputValue = function (input) {
+    const acceptedLetter = /[a-zA-Z]/;
+    if (input.length === 0) {
+        messages.innerText = "Please enter a letter.";
+    } else if (input.length > 1) {
+        messages.innerText = "Please enter only 1 letter at a time.";
+    } else if (!input.match(acceptedLetter)) {
+        messages.innerText = "Please enter a letter from A to Z.";
+    }
+    else {
+        return input;
+    }
+};
